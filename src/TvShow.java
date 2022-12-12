@@ -30,26 +30,17 @@ public class TvShow implements PublisherBase {
         return this.latestEpisode;
     }
 
-    /*
-     *  Add subscriber to the Arraylist of subscribers
-     */
-    public void subscribe(SubscriberBase o) {
-        subscribers.add(o);
+    public void subscribe(SubscriberBase sub) {
+        subscribers.add(sub);
     }
 
-    /*
-     * Remove subscriber to the Arraylist of subscribers
-     */
-    public void unsubscribe(SubscriberBase o) {
-        subscribers.remove(o);
+    public void unsubscribe(SubscriberBase sub) {
+        subscribers.remove(sub);
     }
 
-    /*
-     * Call the update() on each subscriber when the data changes
-     */
     public void notifySubscribers() {
-        for (SubscriberBase o : subscribers) {
-            o.updateSelf(this.latestEpisode);
+        for (SubscriberBase sub : subscribers) {
+            sub.updateSelf(this.latestEpisode);
         }
     }
 
